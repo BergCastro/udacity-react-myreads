@@ -3,6 +3,9 @@ import Book from './Book'
 
 
 class ListBooks extends Component {
+    state = {
+        books: []
+    }
 
     render() {
         const { books, onAtualizaBooks } = this.props

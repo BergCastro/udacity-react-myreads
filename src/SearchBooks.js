@@ -19,7 +19,7 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     if (query !== '') {
-      
+
       BooksAPI.search(query, 12).then((books) => {
         this.setState({ query: query.trim(), books: books })
       })
@@ -38,8 +38,15 @@ class SearchBooks extends Component {
   render() {
     const { query } = this.state
     const books = this.state.books
-
+    const booksShelfs = BooksAPI.getAll().then()
+    console.log('booksShelfs: '+booksShelfs)
     let showBooks
+    const teste = booksShelfs.map(book => (
+      books.map(bookSearch => (
+        showBooks.filter(showbook => bookSearch.title !== book.title)  
+      ))
+      
+    ))
     if (query !=='' && books.length >= 1 ) {
       const match = new RegExp(escapeRegExp(query), 'i')
       console.log('query: ' + query)
