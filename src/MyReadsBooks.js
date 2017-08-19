@@ -5,7 +5,7 @@ import EstanteBook from './EstanteBook'
 class MyReadsBooks extends Component {
 
   render() {
-    const { books , onAtualizaBooks} = this.props
+    
     const shelfs = [
       { title: 'Currently Reading', param: 'currentlyReading' },
       { title: 'Want To Read', param: 'wantToRead' },
@@ -19,7 +19,7 @@ class MyReadsBooks extends Component {
         <div className="list-books-content">
           <div>
             {shelfs.map((shelf) => (
-              <EstanteBook key={shelf.param} shelf={shelf} books={books} onAtualizaBooks={onAtualizaBooks} />
+              <EstanteBook key={shelf.param} shelf={shelf} />
             ))}
           </div>
         </div>
