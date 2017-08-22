@@ -1,9 +1,33 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import EstanteBook from './EstanteBook'
+import * as BooksAPI from './BooksAPI'
+
 
 class MyReadsBooks extends Component {
+  state = {
 
+    
+    books: []
+
+  }
+
+  atualizaBooks = (book, shelf) => {
+    BooksAPI.update(book, shelf).then((shelf) => {
+      BooksAPI.getAll().then((books) => {
+        this.setState({ books })
+      })
+    })
+
+  }
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+
+      this.setState({ books })
+
+    })
+  }
+ 
   render() {
     
     const shelfs = [
@@ -19,7 +43,7 @@ class MyReadsBooks extends Component {
         <div className="list-books-content">
           <div>
             {shelfs.map((shelf) => (
-              <EstanteBook key={shelf.param} shelf={shelf} />
+              <EstanteBook key={shelf.param} books={this.state.books} shelf={shelf} onAtualizaBooks={this.atualizaBooks} />
             ))}
           </div>
         </div>
