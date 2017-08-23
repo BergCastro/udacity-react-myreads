@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import InputSearch from './InputSearch'
 import ListSearchBooks from './ListSearchBooks'
+import * as BooksAPI from './BooksAPI'
 
 
 
@@ -38,7 +39,12 @@ class SearchBooks extends Component {
   clearQuery = () => {
     this.setState({ query: '' })
   }
+  atualizaBooks = (book, shelf) => {
+    BooksAPI.update(book, shelf).then((shelf) =>{
+      
+    })
 
+  }
 
 
   render() {
@@ -52,7 +58,7 @@ class SearchBooks extends Component {
 
         <div className="search-books-results">
 
-          <ListSearchBooks query={this.queryUpdate} updateSearching={this.updateSearching} searching={this.searching} />
+          <ListSearchBooks query={this.queryUpdate} onAtualizaBooks={this.atualizaBooks} searching={this.searching} />
 
         </div>
 
