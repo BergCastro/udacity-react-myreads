@@ -22,15 +22,17 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
 
-    if (query !== '') {
+    //if (query !== '') {
      // console.log('query pesquisada: ' + query)
       this.setState({ query: query.trim() })
       this.queryUpdate = query.trim()
       this.searching = true
       //console.log('query no state: ' + this.queryUpdate)
-    } else {
-      this.setState({ query: '' })
-    }
+    //} else {
+      //this.setState({ query: '' })
+      //this.searching = true
+     // this.queryUpdate = query.trim()
+    //}
 
   }
 
