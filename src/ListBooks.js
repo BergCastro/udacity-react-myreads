@@ -3,25 +3,22 @@ import Book from './Book'
 
 
 
-class ListBooks extends Component {
-        
-    render() {
-        const { books, onAtualizaBooks } = this.props
+function ListBooks(props) {
+    const { books, onAtualizaBooks } = props
+    return (
 
-        
-        return (
+        <ol className="books-grid">
+            {books.map((book) => (
+                <li key={book.id}>
+                    <Book book={book} onAtualizaBooks={onAtualizaBooks} />
+                </li>
+            ))}
 
-            <ol className="books-grid">
-                {books.map((book) => (
-                    <li key={book.id}>
-                        <Book book={book} onAtualizaBooks={onAtualizaBooks} />
-                    </li>
-                ))}
+        </ol>
 
-            </ol>
-
-        )
-    }
+    )
 }
+
+
 
 export default ListBooks

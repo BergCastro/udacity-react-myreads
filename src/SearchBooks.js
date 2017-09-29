@@ -9,10 +9,10 @@ class SearchBooks extends Component {
   constructor(props) {
     super(props)
     this.state = { query: '' }
-    
-    
+
+
     this.searching = false
-    
+
   }
 
   componentDidMount(){
@@ -24,8 +24,8 @@ class SearchBooks extends Component {
 
     //if (query !== '') {
      // console.log('query pesquisada: ' + query)
-      this.setState({ query: query.trim() })
-      this.queryUpdate = query.trim()
+      this.setState({ query: query })
+      this.queryUpdate = query
       this.searching = true
       //console.log('query no state: ' + this.queryUpdate)
     //} else {
@@ -36,22 +36,22 @@ class SearchBooks extends Component {
 
   }
 
-  
+
 
   clearQuery = () => {
     this.setState({ query: '' })
   }
   atualizaBooks = (book, shelf) => {
     BooksAPI.update(book, shelf).then((shelf) =>{
-      
+
     })
 
   }
 
 
   render() {
-    
-    
+
+
    // console.log("Atualizou pesquisa")
     return (
       <div className="search-books">
